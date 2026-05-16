@@ -718,7 +718,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
     }
     return TRUE;
 }
-#elif defined(__linux__)
+#elif defined(__GNUC__) || defined(__clang__)
 __attribute__((destructor)) void onLibraryUnload()
 {
     finalizePythonInterpreter();
